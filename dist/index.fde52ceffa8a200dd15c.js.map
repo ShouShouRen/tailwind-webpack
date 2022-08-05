@@ -1,1 +1,0 @@
-{"version":3,"file":"index.fde52ceffa8a200dd15c.js","mappings":"yBAMAA,QAAQC,IAAI,O","sources":["webpack://tailwind-webpack/./src/index.js"],"sourcesContent":["// import $ from 'jquery'\nimport './index.css'\nimport { a } from './a'\n\n// console.log($.ajax)\n\nconsole.log('here');\n"],"names":["console","log"],"sourceRoot":""}
