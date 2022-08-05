@@ -4,7 +4,7 @@ import { a } from './a'
 
 // console.log($.ajax)
 
-console.log('here');
+console.log( a ,'...');
 
 class Test {
     #a = 100

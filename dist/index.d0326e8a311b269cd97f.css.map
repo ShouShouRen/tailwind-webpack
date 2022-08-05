@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d0326e8a311b269cd97f.css","mappings":"AAAA;IACI,WAAW;IACX,aAAa;IACb,yDAAwC;IACxC,gCAAwB;YAAxB,wBAAwB;AAC5B,C","sources":["webpack://tailwind-webpack/./src/index.css"],"sourcesContent":[".root {\n    width: 100%;\n    height: 100vh;\n    background-image: url(./54-400x300.jpeg);\n    transform: rotate(90deg);\n}"],"names":[],"sourceRoot":""}

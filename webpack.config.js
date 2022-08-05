@@ -1,6 +1,10 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
+const CompressionPlugin = require("compression-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 module.exports = {
     entry: './src/index.js',
     mode: 'production',
@@ -43,7 +47,14 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: 'index.[hash].css',
-        })
+        }),
+        new CleanWebpackPlugin(),
+        new CopyPlugin({
+            patterns: [
+              { from: "./static", to: "./static" },
+            ],
+        }),
+        new CompressionPlugin(),
     ],
     devtool: 'source-map'
 };
