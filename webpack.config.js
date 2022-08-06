@@ -1,60 +1,73 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
+const webpack = require('webpack')
 const path = require('path');
+
 module.exports = {
-    entry: './src/index.js',
-    mode: 'production',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'index.[hash].js',
-    },
-    module: {
-        rules: [{
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader, 
-                    {
-                        loader: 'css-loader',
-                        options:{
-                            importLoaders: 1,
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader'
-                    }
-                ],
-            },
-            {
-                test: /\.(png|jpg|gif)$/i,
-                type: 'asset/resource'
-            },
-            {
-                test: /\.m?js$/,
-                exclude: /node_modules/,
-                use: {
-                  loader: "babel-loader",
-                }
+  target: 'web',
+  // 入口
+  entry: './src/index.js',
+  // 模式 development
+  mode: 'development',
+  // 出口
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.[hash].js',
+  },
+  // loader
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
             }
+          },
+          {
+            loader: 'postcss-loader'
+          }
         ],
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html'
-        }),
-        new MiniCssExtractPlugin({
-            filename: 'index.[hash].css',
-        }),
-        new CleanWebpackPlugin(),
-        new CopyPlugin({
-            patterns: [
-              { from: "./static", to: "./static" },
-            ],
-        }),
-        new CompressionPlugin(),
+      },
+      {
+        test: /\.gif/,
+        type: 'asset/resource'
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        }
+      }
     ],
-    devtool: 'source-map'
-};
+  },
+  // 插件
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'index.[hash].css'
+    }),
+    new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: "./static", to: "./static" },
+      ],
+    }),
+    new webpack.DefinePlugin({
+      // Definitions...
+      PRODUCTION: JSON.stringify(false),
+    }),
+    new CompressionPlugin()
+  ],
+
+  devtool: 'source-map'
+}
