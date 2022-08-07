@@ -3,7 +3,16 @@ module.exports = {
   darkMode: false,
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'xx': '1000px'
+      }
+    },
+  },
+  variants: {
+    extend:{
+      ringWidth: ['active']
+    },
   },
   plugins: [],
 }
