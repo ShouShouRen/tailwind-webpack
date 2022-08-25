@@ -7,6 +7,7 @@ const webpack = require('webpack')
 const path = require('path');
 
 module.exports = {
+  // livereload
   target: 'web',
   // 入口
   entry: './src/index.js',
