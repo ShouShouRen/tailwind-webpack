@@ -6,12 +6,15 @@ module.exports = {
     extend: {
       screens: {
         'xx': '1000px'
+      },
+      colors: {
+        fill:'#fff'
       }
     },
   },
   variants: {
     extend:{
-      // ringWidth: ['active']
+      ringWidth: ['active']
     },
   },
   plugins: [],
