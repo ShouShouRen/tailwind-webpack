@@ -1,2 +1,0 @@
-(()=>{"use strict";var e=document.getElementById("light"),t=document.getElementById("dark");e.addEventListener("click",(function(){document.documentElement.classList.remove("dark")})),t.addEventListener("click",(function(){document.documentElement.classList.add("dark")}))})();
-//# sourceMappingURL=index.38be5a688c01ca13f523.js.map
