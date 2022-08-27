@@ -4,10 +4,10 @@ const btnLight = document.getElementById('light');
 const btnDark = document.getElementById('dark');
 
 btnLight.addEventListener('click', function () { 
-    this.classList.remove('dark');
+    document.documentElement.classList.remove('dark');
  })
 
 btnDark.addEventListener('click', function () { 
-    this.classList.remove('light');
+    document.documentElement.classList.add('dark');
  })
 
